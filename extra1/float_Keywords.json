@@ -1,0 +1,1 @@
+{"content": "\nfloat is a keyword which designates the 32 bit float primitive type.\n\nThe java.lang.Float class is the nominal wrapper class when you need to store a float value but an object reference is required.\n\nfloat <variable-name> = <float-value>;\n\n\n\n\n\n\nfloat price = 49.95;\n\n\nJava Programming/Primitive Types", "heading": "float"}

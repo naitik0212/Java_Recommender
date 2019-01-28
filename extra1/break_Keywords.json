@@ -1,0 +1,1 @@
+{"content": "\nbreak is a Java keyword.\n\nJumps (breaks) out from a loop. Also used at switch statement.\n\n\n\n\n\n\nfor ( int i=0; i < maxLoopIter; i++ ) {\n   System.out.println(\"Iter=\" +i);\n   if ( i == 5 ) {\n      break;  // -- 5 iteration is enough --\n   }\n}\n\n\nJava Programming/Keywords/switch", "heading": "break"}

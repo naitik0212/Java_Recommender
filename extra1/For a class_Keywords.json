@@ -1,0 +1,1 @@
+{"content": "\nThe final keyword forbids the creation of a subclass. It is the case of the Integer or String class.\n\n\n\n\n\nCode listing 1: SealedClass.java\n1 public final class SealedClass {\n2   public static void main(String[] args) {\n3   }\n4 }\n\n\nA final class cannot be abstract. The final keyword is similar to sealed keyword in C#.\n", "heading": "For a class"}

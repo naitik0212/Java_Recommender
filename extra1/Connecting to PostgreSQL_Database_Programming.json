@@ -1,0 +1,1 @@
+{"content": "\ntry {\n   Class.forName(\"org.postgresql.Driver\");\n   Connection conn = DriverManager.getConnection(\"jdbc:postgresql:MyDatabase\", \"MyAccount\", \"MyPassword\");\n   conn.close();\n} catch(SQLException e) { e.printStackTrace(); }\n", "heading": "Connecting to PostgreSQL"}

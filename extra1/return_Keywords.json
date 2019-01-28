@@ -1,0 +1,1 @@
+{"content": "\nreturn is a Java keyword.\n\nReturns a primitive value, or an object reference, or nothing(void).  It does not return object values, only object references.\n\nreturn variable;  // --- Returns variable\nor\nreturn;           // --- Returns nothing\n", "heading": "return"}

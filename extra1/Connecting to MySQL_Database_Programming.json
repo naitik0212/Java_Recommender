@@ -1,0 +1,1 @@
+{"content": "\ntry {\n   Class.forName(\"com.mysql.jdbc.Driver\");\n   Connection conn = DriverManager.getConnection(\"jdbc:mysql://localhost/MySite?user=MyAccount&password=MyPassword\");\n   conn.close();\n} catch(SQLException e) { e.printStackTrace(); }\n", "heading": "Connecting to MySQL"}

@@ -1,0 +1,1 @@
+{"content": "\nIf a section is optional, it can be hidden like this:\n\n\n\nYou write\n\nYou get\n\n\n{{Java/Hidden begin|title=Hidden section}}\nThis section is not mandatory.\n{{Hidden end}}\n\nHidden section\nThis section is not mandatory.\n\n\n", "heading": "Hidden section"}

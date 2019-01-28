@@ -1,0 +1,1 @@
+{"content": "\nThere are tools like FindBugs that parse your code and warn you about potential bugs. Most of the time, these tools detect possible null pointers.\n\n\n\n\n\n\nTo do:Add some exercises like the ones in Variables\n\n\n\n\n Unchecked Exceptions\n\nJava ProgrammingPreventing NullPointerException\n\nStack trace \n", "heading": "External tools"}

@@ -1,0 +1,949 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Content Based Recommendation</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+</head>
+<body>
+<div class="container-fluid">
+    <h3 style="color: white; margin-top: 20px; text-align: center"> Welcome to the WikiBooks Recommendations</h3>
+    <hr>
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+    <div class="container" >
+        <br/>
+        <div class="row justify-content-center" >
+            <div class="col-12 col-md-10 col-lg-8" >
+                <div class="card card-sm" style="background: linear-gradient(to bottom right, #002f4b, #dc4225);">
+                    <div class="card-body row no-gutters align-items-center">
+                        <div class="col-auto">
+                            <i class="fas fa-search h4 text-body"></i>
+                        </div>
+                        <!--end of col-->
+                        <div class="col">
+                            <input class="form-control form-control-lg form-control-borderless" id= "codebase11" placeholder="Search topics or keywords">
+                        </div>
+                        <!--end of col-->
+                        <div class="col-auto">
+                            <button class="btn btn-lg btn-success" onclick="selectDiv(11)">Search</button>
+                            <button class="btn btn-lg btn-danger" onclick="selectDiv(12)">Cancel</button>
+                        </div>
+
+                        <!--end of col-->
+                    </div>
+                </div>
+            </div>
+            <!--end of col-->
+        </div>
+        <!--<button class="btn btn-link" >Recommendations </button>-->
+
+    </div>
+    <div id = "rec11" class="table-responsive" style="background: #f44336; color: black; text-align: center; font-size: 18px " ></div>
+
+    <br>
+
+
+    <div class="table-responsive">
+
+    <table class="table table-hover table-dark">
+        <thead>
+        <tr>
+            <th scope="col">Post type</th>
+            <th scope="col" colspan="3">Content</th>
+            <!--<th scope="col">Code</th>-->
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <th scope="row">Answer</th>
+            <td colspan="3"><div id="codebase1">One way to implement deep copy is to add copy constructors to each associated class. A copy constructor takes an instance of 'this' as its single argument and copies all the values from it. Quite some work, but pretty straightforward and safe.
+                EDIT: note that you don't need to use accessor methods to read fields. You can access all fields directly because the source instance is always of the same type as the instance with the copy constructor. Obvious but might be overlooked. Example: Edit:
+                Note that when using copy constructors you need to know the runtime type of the object you are copying. With the above approach you cannot easily copy a mixed list (you might be able to do it with some reflection code)</div>
+                <button class="btn btn-link" onclick="addCode1()">CodeSnippet </button>
+                <button class="btn btn-link" onclick="selectDiv(1)">Recommendations </button>
+                <div id = "code1" style="background: #efecef; color: black; " ></div>
+                <div id = "rec1" style="background: #efecef; color: black; " ></div>
+
+            </td>
+
+            <!--<td>public class Order{<br>private long number;<br>public Order() {}<br>/** * Copy constructor <br>*/public Order(Order source)<br> {number = source.number;}}<br>public class Customer {private String name;private List<Order> orders = new ArrayList<Order>();public Customer() {}/** * Copy constructor */public Customer(Customer source) {name = source.name;for (Order sourceOrder : source.orders) {orders.add(new Order(sourceOrder));}}public String getName() {return name;}public void setName(String name) {this.name = name;}} </button></td>-->
+        </tr>
+        <tr>
+            <th scope="row">Answer</th>
+            <td colspan="3"><div id="codebase2">I was presented with this question in an end of module open book exam today and found myself lost. i was reading Head first Javaand both definitions seemed to be exactly the same. i was just wondering what the MAIN difference was for my own piece of mind. i know there are a number of similar questions to this but, none i have seen which provide a definitive answer.Thanks, Darren</div>
+                <button class="btn btn-link" onclick="selectDiv(2)">Recommendations </button>
+                <!--<div id = "code2" style="background: #efecef; color: black;" ></div>-->
+                <div id = "rec2" style="background: #efecef; color: black; " ></div>
+
+            </td>
+
+            <!--<td>public class Order{<br>private long number;<br>public Order() {}<br>/** * Copy constructor <br>*/public Order(Order source)<br> {number = source.number;}}<br>public class Customer {private String name;private List<Order> orders = new ArrayList<Order>();public Customer() {}/** * Copy constructor */public Customer(Customer source) {name = source.name;for (Order sourceOrder : source.orders) {orders.add(new Order(sourceOrder));}}public String getName() {return name;}public void setName(String name) {this.name = name;}} </button></td>-->
+        </tr>
+
+        <tr>
+            <th scope="row">Answer</th>
+            <td colspan="3" ><div id="codebase3">Inheritance is when a 'class' derives from an existing 'class'.So if you have a Person class, then you have a Student class that extends Person, Student inherits all the things that Person has.There are some details around the access modifiers you put on the fields/methods in Person, but that's the basic idea.For example, if you have a private field on Person, Student won't see it because its private, and private fields are not visible to subclasses.Polymorphism deals with how the program decides which methods it should use, depending on what type of thing it has.If you have a Person, which has a read method, and you have a Student which extends Person, which has its own implementation of read, which method gets called is determined for you by the runtime, depending if you have a Person or a Student.It gets a bit tricky, but if you do something likePerson p = new Student();p.read();the read method on Student gets called.Thats the polymorphism in action.You can do that assignment because a Student is a Person, but the runtime is smart enough to know that the actual type of p is Student.Note that details differ among languages.You can do inheritance in javascript for example, but its completely different than the way it works in Java.</div>
+                <button class="btn btn-link" onclick="selectDiv(3)">Recommendations </button>
+                <div id = "rec3" style="background: #efecef; color: black; " ></div>
+
+            </td>
+
+        </tr>
+
+        <tr>
+            <th scope="row">Answer</th>
+            <td colspan="3"><div id="codebase4">Polymorphism: The ability to treat objects of different types in a similar manner.Example: Giraffe and Crocodile are both Animals, and animals can Move.If you have an instance of an Animal then you can call Move without knowing or caring what type of animal it is.Inheritance: This is one way of achieving both Polymorphism and code reuse at the same time.Other forms of polymorphism:There are other way of achieving polymorphism, such as interfaces, which provide only polymorphism but no code reuse (sometimes the code is quite different, such as Move for a Snake would be quite different from Move for a Dog, in which case an Interface would be the better polymorphic choice in this case.In other dynamic languages polymorphism can be achieved with Duck Typing, which is the classes don't even need to share the same base class or interface, they just need a method with the same name.Or even more dynamic like Javascript, you don't even need classes at all, just an object with the same method name can be used polymorphically.</div>
+                <button class="btn btn-link" onclick="selectDiv(4)">Recommendations </button>
+                <div id = "rec4" style="background: #efecef; color: black; " ></div>
+
+            </td>
+
+        </tr>
+
+        <tr>
+            <th scope="row">Question</th>
+            <td colspan="3"><div id="codebase5">I found out that the above piece of code is perfectly legal in Java. I have the following questions. ThanksAdded one more question regarding Abstract method classes.</div>
+                <button class="btn btn-link" onclick="addCode5()">CodeSnippet </button>
+                <button class="btn btn-link" onclick="selectDiv(5)">Recommendations </button>
+                <div id = "code5" style="background: #efecef; color: black; " ></div>
+                <div id = "rec5" style="background: #efecef; color: black; " ></div>
+
+            </td>
+
+        </tr>
+
+        <tr>
+            <th scope="row">Question</th>
+            <td colspan="3" ><div id="codebase6">In java it's a bit difficult to implement a deep object copy function. What steps you take to ensure the original object and the cloned one share no reference? </div>
+                <!--<button class="btn btn-link" onclick="addCode1()">CodeSnippet </button>-->
+                <button class="btn btn-link" onclick="selectDiv(6)">Recommendations </button>
+                <!--<div id = "code6" style="background: #efecef; color: black" ></div>-->
+                <div id = "rec6" style="background: #efecef; color: black;" ></div>
+
+            </td>
+        </tr>
+
+        <tr>
+            <th scope="row">Answer</th>
+            <td colspan="3" ><div id="codebase7">You can make a deep copy serialization without creating some files. Copy: Restore:</div>
+                <button class="btn btn-link" onclick="addCode7()">CodeSnippet </button>
+                <button class="btn btn-link" onclick="selectDiv(7)">Recommendations </button>
+                <div id = "code7" style="background: #efecef; color: black;" ></div>
+                <div id = "rec7" style="background: #efecef; color: black;" ></div>
+
+            </td>
+        </tr>
+
+        <tr>
+            <th scope="row">Answer</th>
+            <td colspan="3" ><div id="codebase8">Java has the ability to create classes at runtime. These classes are known as Synthetic Classes or Dynamic Proxies. See for more information. Other open-source libraries, such as and also allow you to generate synthetic classes, and are more powerful than the libraries provided with the JRE. Synthetic classes are used by AOP (Aspect Oriented Programming) libraries such as Spring AOP and AspectJ, as well as ORM libraries such as Hibernate. </div>
+                <!--<button class="btn btn-link" onclick="addCode1()">CodeSnippet </button>-->
+                <button class="btn btn-link" onclick="selectDiv(8)">Recommendations </button>
+                <!--<div id = "code8" style="background: #efecef; color: black" ></div>-->
+                <div id = "rec8" style="background: #efecef; color: black;" ></div>
+
+            </td>
+        </tr>
+
+        <tr>
+            <th scope="row">Answer</th>
+            <td colspan="3" ><div id="codebase9">In short: the web server issues a unique identifier to on his visit. The visitor must bring back that ID for him to be recognised next time around. This identifier also allows the server to properly segregate objects owned by one session against that of another. If is: If is: Once he's on the service mode and on the groove, the servlet will work on the requests from all other clients.Why isn't it a good idea to have one instance per client? Think about this: Will you hire one pizza guy for every order that came? Do that and you'd be out of business in no time. It comes with a small risk though. Remember: this single guy holds all the order information in his pocket: so if you're not cautious about, he may end up giving the wrong order to a certain client. </div>
+                <!--<button class="btn btn-link" onclick="addCode1()">CodeSnippet </button>-->
+                <button class="btn btn-link" onclick="selectDiv(9)">Recommendations </button>
+                <!--<div id = "code9" style="background: #efecef; color: black" ></div>-->
+                <div id = "rec9" style="background: #efecef; color: black;" ></div>
+
+            </td>
+        </tr>
+
+        <tr>
+            <th scope="row">Answer</th>
+            <td colspan="3"><div id="codebase10">A safe way is to serialize the object, then deserialize.This ensures everything is a brand new reference.about how to do this efficiently. Caveats: It's possible for classes to override serialization such that new instances are created, e.g. for singletons.Also this of course doesn't work if your classes aren't Serializable.</div>
+                <!--<button class="btn btn-link" onclick="addCode1()">CodeSnippet </button>-->
+                <button class="btn btn-link" onclick="selectDiv(10)">Recommendations </button>
+                <!--<div id = "code10" style="background: #efecef; color: black" ></div>-->
+                <div id = "rec10" style="background: #efecef; color: black;" ></div>
+
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<hr>
+    <div style="margin-right: 100px; margin-left: 100px; color:white">
+        <h3 style=" text-align:center; margin-right: 50px; margin-left: 50px">Content Based Recommendation</h3>
+        <br>
+
+        <hr>
+        <div style="text-align: center">
+            <h3 style=" text-align:center; margin-right: 50px; margin-left: 50px">Content Collection</h3><hr>
+
+            <br>
+            <div style="font-size:18px; text-align: left; font-weight: bold">
+                <p>The Collected content is crawled using beautiful soup python script</p>
+                <p>The data consists of all the Java WikiBooks pages, along with the internal pages as well.</p>
+            </div>
+            <hr>
+            <h3 style=" text-align:center; margin-right: 50px; margin-left: 50px">Content Indexing</h3><hr>
+
+            <p style="font-size:18px;font-weight: bold; text-align:left"> The most important part of content based recommendation is about content indexing. I have used Elastic Search[6.4] in the backend to develop an efficient recommendation system. Following are the steps and characteristics: <br></p>
+
+            <div style="font-size:18px; text-align: left; font-weight: bold">
+                <p>The crawled data is stored using small chunks, based on the subheading that each file has on the wikibooks pages. I.E. If a page consist of 5 subsections, all this 5 sections have been stored in the json files while crawling.<br>
+                It will also contain the codebase relevant to the topic, the extra parameters and the whole content of that subsection. The recommendation to the user will be based on the number of hits the json has with the listed content.<br>
+                The content can be dynamically provided by the user as well. </p>
+
+                <p> The elastic search is then loaded by all this json files (472 files in total) using the indexing by the title technique.
+                    <br> Here each document stored in elastic search represents a subtopic which is extracted from the Java Wikibooks website.
+                    <br>Another python script is been wrote to load the whole data to elastic search. The command used to load all the files is given below:</p>
+                <p>es.index(index='wikibooks_java', ignore=400, doc_type='docket', id=no, body=json.loads(docket_content))</p>
+                <p>Here we are giving the whole database the name of wikibooks_java, along with it giving the doc_type as docket and the id is associated with the number of file that is been loaded.(Total 472)</p>
+
+                <p> Once the data is loaded, after configuring the elastic search correctly, we can hit a query with the required text to match for finding the results.
+                    <br> This searching has multiple parts. The content that is to be passed needs some pre-processing, so that our results do not obscure out.<br>
+                    So all the stopping words have been removed at the first instance before firing a search query
+                    <br>Next, we know certain topics and keywords in java are really important, for example: constructors, such keywords needs to be given more weightage comapared to the normal english words.
+                    <br> So a boosting parameter of 1.25 is added to such keywords if they are found in the content.
+                    <br> Next, we search across the Elastic Search for the search phrase, such that the word found in header field is given double weightage as compared to the content field.
+                    <br> Once we fetch the top 10 results, we display it effectively in a tabular format.</p><hr>
+
+            <h3 style=" text-align:center; margin-right: 50px; margin-left: 50px">Unique Element</h3><hr>
+
+            <div style="font-size:18px; text-align: left; font-weight: bold">
+                <p>The Search bar has been implemented for a user defined phrase search except the content. The results will be dynamically fetched from the database and displayed efficiently.</p>
+                <p>The color presented in the recommendation shows how good the recommendation is!</p>
+                <ul><li style="color: #45B649"> Green colored recommendations were effectively found in the database and has the highest hits and scores </li></ul>
+                <ul><li style="color: #f8b500 "> Yellow colored recommendations are found in the database and but isn't the best content match </li></ul>
+                <ul><li style="color: #f44336"> Red colored recommendations were not found effectively in the database and the phrase checked has lowest hits and scores </li></ul>
+
+            </div>
+
+                <h3 style=" text-align:center; margin-right: 50px; margin-left: 50px">References</h3><hr>
+
+                <div style="font-size:18px; text-align: left; font-weight: bold">
+                    <p>http://geeklad.com/remove-stop-words-in-javascript</p>
+                    <p>Elastic Search Documentation</p>
+                    <p>https://stackoverflow.com/questions/28675162/how-do-you-add-multiple-json-files-to-elasticsearch</p>
+                    <p>https://medium.freecodecamp.org/how-to-scrape-websites-with-python-and-beautifulsoup-5946935d93fe</p>
+                    <p>StackOverflow for various issues</p>
+
+                </div>
+
+
+
+        </div>
+
+            <hr/>
+
+
+        </div>
+    </div>
+
+
+</div>
+
+<script>
+    var a =false;
+
+    function addCode1() {
+        if(document.getElementById("code1").innerHTML === ''){
+            document.getElementById("code1").innerHTML =  "<br>" +"public class Order{" + "<br>" + "private long number;public Order() {}" + "<br>" + "/*** Copy constructor" + "<br>" + " */public Order(Order source)"
+                + "<br>" + " {number = source.number;}}" + "<br>" + "public class Customer {private String name;" + "<br>" + "private List<Order> orders = new ArrayList<Order>();" + "<br>" + "public Customer() {}" +
+                "<br>" + "/** * Copy constructor " + "<br>" + "*/public Customer(Customer source)" + "<br>" + " {name = source.name;"
+                + "<br>" + "for (Order sourceOrder : source.orders) " + "<br>" + "{orders.add(new Order(sourceOrder));}}" + "<br>" + "public String getName() {return name;}" + "<br>" + "public void setName(String name) {this.name = name;}}" + "<hr>";
+        a = true;
+        }else{
+            document.getElementById("code1").innerHTML = '';
+            a = false;
+        }
+    }
+
+    function addCode5() {
+        if(document.getElementById("code5").innerHTML === ''){
+            document.getElementById("code5").innerHTML =  "<br>" +"public class TestClass{" + "<br>" + "public static void main(String[] args) {" + "<br>" + "TestClass t = new TestClass();}" + "<br>" + "private static void testMethod()" + "<br>" + "{abstract class TestMethod{int a;int b;int c;" + "<br>" + "abstract void implementMe();}" + "<br>" + "class DummyClass extends TestMethod{" + "<br>" + "void implementMe(){}}" + "<br>" + "DummyClass dummy = new DummyClass();}}" + "<hr>";
+            a = true;
+        }else{
+            document.getElementById("code5").innerHTML = '';
+            a = false;
+        }
+    }
+
+    function addCode7() {
+        if(document.getElementById("code7").innerHTML === ''){
+            document.getElementById("code7").innerHTML =  "<br>" +"ByteArrayOutputStream bos = new ByteArrayOutputStream();" + "<br>" + "ObjectOutputStream oos = new ObjectOutputStream(bos);" + "<br>" + "oos.writeObject(object);" + "<br>" + "oos.flush();" + "<br>" + "oos.close();" + "<br>" + "bos.close();" + "<br>" + "byte[] byteData = bos.toByteArray();" + "<br>" + " ByteArrayInputStream bais = new ByteArrayInputStream(byteData);" + "<br>" + "(Object) object = (Object) new ObjectInputStream(bais).readObject();" + "<hr>";
+            a = true;
+        }else{
+            document.getElementById("code7").innerHTML = '';
+            a = false;
+        }
+    }
+
+
+    function selectDiv(i) {
+
+        var ans;
+        var divselected;
+
+        if(i===1){
+            ans = document.getElementById("codebase1").textContent + document.getElementById("code1").textContent;
+            divselected = document.getElementById("rec1");
+        }else if(i===2){
+            ans = document.getElementById("codebase2").textContent;
+            divselected = document.getElementById("rec2");
+        }else if(i===3){
+            ans = document.getElementById("codebase3").textContent;
+            divselected = document.getElementById("rec3");
+        }else if(i===4){
+            ans = document.getElementById("codebase4").textContent;
+            divselected = document.getElementById("rec4");
+        }else if(i===5){
+            ans = document.getElementById("codebase5").textContent + document.getElementById("code5").textContent;
+            divselected = document.getElementById("rec5");
+        }else if(i===6){
+            ans = document.getElementById("codebase6").textContent;
+            divselected = document.getElementById("rec6");
+        }else if(i===7){
+            ans = document.getElementById("codebase7").textContent + document.getElementById("code7").textContent;
+            divselected = document.getElementById("rec7");
+        }else if(i===8){
+            ans = document.getElementById("codebase8").textContent;
+            divselected = document.getElementById("rec8");
+        }else if(i===9){
+            ans = document.getElementById("codebase9").textContent;
+            divselected = document.getElementById("rec9");
+        }else if(i===10){
+            ans = document.getElementById("codebase10").textContent;
+            divselected = document.getElementById("rec10");
+    }else if(i===11){
+            ans = document.getElementById("codebase11").value;
+            divselected = document.getElementById("rec11");
+            console.log(ans.length);
+            if(ans.length <= 2){
+                divselected.innerHTML = 'Please enter a keyword or a phrase to search across the Java Wikibooks Database';
+                return
+            }else {
+                // console.log(ans);
+                divselected.innerHTML = '';
+            }
+        }else if(i===12){
+            divselected = document.getElementById("rec11");
+            divselected.innerHTML = '';
+            return
+        }
+
+        recommendation(ans,divselected)
+    }
+
+    function recommendation(ans,divselected) {
+
+        if (divselected.innerHTML === '') {
+
+
+            var java_keywords_imp=['abstract', 'casting', 'Polymorphism', 'inherits',
+                'synchronized','checked exception', 'concurrency',
+                'constructor', 'encapsulation', 'garbage collection','immutable','inheritance',
+                'interface','JVM','JDK','memory leak','Spring', 'multithreading','overloading',
+                'serialization', 'web server','thread'];
+
+
+
+            // var java_keywords=['deep copy','abstract','API','autoboxing','block', 'casting', 'constructors', 'Polymorphism', 'inherits', 'Abstract',
+            //     'synchronized','checked exception','class','class method','copy constructors','classpath','compiler','concurrency','condition','constant',
+            //     'constructor','direct recursion','encapsulation','enum','exception','transient',
+            //     'garbage collection','hash','immutable','recursion','inheritance','interface','static','JAR','JVM','JDK','memory leak',
+            //     'multithreaded','object','OOP','operator','overloading','package','private','protected','serialization','thread',
+            //     'stream','unchecked exception','virtual machine','wrapper','polymorphism', 'subclasses'];
+
+            // console.log(selectDiv())
+            // var ans = selectDiv();
+
+            String.prototype.removeStopWords = function () {
+                var x;
+                var y;
+                var word;
+                var stop_word;
+                var regex_str;
+                var regex;
+                var cleansed_string = this.valueOf();
+                var stop_words = ['a',
+                    'about',
+                    'above',
+                    'across',
+                    'after',
+                    'again',
+                    'against',
+                    'all',
+                    'almost',
+                    'alone',
+                    'along',
+                    'already',
+                    'also',
+                    'although',
+                    'always',
+                    'among',
+                    'an',
+                    'another',
+                    'any',
+                    'anybody',
+                    'anyone',
+                    'anything',
+                    'anywhere',
+                    'are',
+                    'area',
+                    'areas',
+                    'around',
+                    'as',
+                    'ask',
+                    'asked',
+                    'asking',
+                    'asks',
+                    'at',
+                    'away',
+                    'b',
+                    'back',
+                    'backed',
+                    'backing',
+                    'backs',
+                    'be',
+                    'became',
+                    'because',
+                    'become',
+                    'becomes',
+                    'been',
+                    'before',
+                    'began',
+                    'behind',
+                    'being',
+                    'beings',
+                    'best',
+                    'better',
+                    'between',
+                    'big',
+                    'both',
+                    'but',
+                    'by',
+                    'c',
+                    'came',
+                    'can',
+                    'cannot',
+                    'case',
+                    'cases',
+                    'certain',
+                    'certainly',
+                    'clear',
+                    'clearly',
+                    'come',
+                    'could',
+                    'd',
+                    'did',
+                    'differ',
+                    'different',
+                    'differently',
+                    'do',
+                    'does',
+                    'done',
+                    'down',
+                    'down',
+                    'downed',
+                    'downing',
+                    'downs',
+                    'during',
+                    'e',
+                    'each',
+                    'early',
+                    'either',
+                    'end',
+                    'ended',
+                    'ending',
+                    'ends',
+                    'enough',
+                    'even',
+                    'evenly',
+                    'ever',
+                    'every',
+                    'everybody',
+                    'everyone',
+                    'everything',
+                    'everywhere',
+                    'f',
+                    'face',
+                    'faces',
+                    'fact',
+                    'facts',
+                    'far',
+                    'felt',
+                    'few',
+                    'find',
+                    'finds',
+                    'first',
+                    'four',
+                    'from',
+                    'full',
+                    'fully',
+                    'further',
+                    'furthered',
+                    'furthering',
+                    'furthers',
+                    'g',
+                    'gave',
+                    'general',
+                    'generally',
+                    'get',
+                    'gets',
+                    'give',
+                    'given',
+                    'gives',
+                    'go',
+                    'going',
+                    'good',
+                    'goods',
+                    'got',
+                    'great',
+                    'greater',
+                    'greatest',
+                    'group',
+                    'grouped',
+                    'grouping',
+                    'groups',
+                    'h',
+                    'had',
+                    'has',
+                    'have',
+                    'having',
+                    'he',
+                    'her',
+                    'here',
+                    'herself',
+                    'high',
+                    'high',
+                    'high',
+                    'higher',
+                    'highest',
+                    'him',
+                    'himself',
+                    'his',
+                    'how',
+                    'however',
+                    'i',
+                    'if',
+                    'important',
+                    'in',
+                    'interest',
+                    'interested',
+                    'interesting',
+                    'interests',
+                    'into',
+                    'is',
+                    'it',
+                    'its',
+                    'itself',
+                    'j',
+                    'just',
+                    'k',
+                    'keep',
+                    'keeps',
+                    'kind',
+                    'knew',
+                    'know',
+                    'known',
+                    'knows',
+                    'l',
+                    'large',
+                    'largely',
+                    'last',
+                    'later',
+                    'latest',
+                    'least',
+                    'less',
+                    'let',
+                    'lets',
+                    'like',
+                    'likely',
+                    'long',
+                    'longer',
+                    'longest',
+                    'm',
+                    'made',
+                    'make',
+                    'making',
+                    'man',
+                    'many',
+                    'may',
+                    'me',
+                    'member',
+                    'members',
+                    'men',
+                    'might',
+                    'more',
+                    'most',
+                    'mostly',
+                    'mr',
+                    'mrs',
+                    'much',
+                    'must',
+                    'my',
+                    'myself',
+                    'n',
+                    'necessary',
+                    'need',
+                    'needed',
+                    'needing',
+                    'needs',
+                    'never',
+                    'new',
+                    'new',
+                    'newer',
+                    'newest',
+                    'next',
+                    'no',
+                    'nobody',
+                    'non',
+                    'noone',
+                    'not',
+                    'nothing',
+                    'now',
+                    'nowhere',
+                    'number',
+                    'numbers',
+                    'o',
+                    'of',
+                    'off',
+                    'often',
+                    'old',
+                    'older',
+                    'oldest',
+                    'on',
+                    'once',
+                    'one',
+                    'only',
+                    'open',
+                    'opened',
+                    'opening',
+                    'opens',
+                    'or',
+                    'order',
+                    'ordered',
+                    'ordering',
+                    'orders',
+                    'other',
+                    'others',
+                    'our',
+                    'out',
+                    'over',
+                    'p',
+                    'part',
+                    'parted',
+                    'parting',
+                    'parts',
+                    'per',
+                    'perhaps',
+                    'place',
+                    'places',
+                    'point',
+                    'pointed',
+                    'pointing',
+                    'points',
+                    'possible',
+                    'present',
+                    'presented',
+                    'presenting',
+                    'presents',
+                    'problem',
+                    'problems',
+                    'put',
+                    'puts',
+                    'q',
+                    'quite',
+                    'r',
+                    'rather',
+                    'really',
+                    'right',
+                    'right',
+                    'room',
+                    'rooms',
+                    's',
+                    'said',
+                    'same',
+                    'saw',
+                    'say',
+                    'says',
+                    'second',
+                    'seconds',
+                    'see',
+                    'seem',
+                    'seemed',
+                    'seeming',
+                    'seems',
+                    'sees',
+                    'several',
+                    'shall',
+                    'she',
+                    'should',
+                    'show',
+                    'showed',
+                    'showing',
+                    'shows',
+                    'side',
+                    'sides',
+                    'since',
+                    'small',
+                    'smaller',
+                    'smallest',
+                    'so',
+                    'some',
+                    'somebody',
+                    'someone',
+                    'something',
+                    'somewhere',
+                    'state',
+                    'states',
+                    'still',
+                    'still',
+                    'such',
+                    'sure',
+                    't',
+                    'take',
+                    'taken',
+                    'than',
+                    'that',
+                    'the',
+                    'their',
+                    'them',
+                    'then',
+                    'there',
+                    'therefore',
+                    'these',
+                    'they',
+                    'thing',
+                    'things',
+                    'think',
+                    'thinks',
+                    'this',
+                    'those',
+                    'though',
+                    'thought',
+                    'thoughts',
+                    'three',
+                    'through',
+                    'thus',
+                    'to',
+                    'today',
+                    'together',
+                    'too',
+                    'took',
+                    'toward',
+                    'turn',
+                    'turned',
+                    'turning',
+                    'turns',
+                    'two',
+                    'u',
+                    'under',
+                    'until',
+                    'up',
+                    'upon',
+                    'us',
+                    'use',
+                    'used',
+                    'uses',
+                    'v',
+                    'very',
+                    'w',
+                    'want',
+                    'wanted',
+                    'wanting',
+                    'wants',
+                    'was',
+                    'way',
+                    'ways',
+                    'we',
+                    'well',
+                    'wells',
+                    'went',
+                    'were',
+                    'what',
+                    'when',
+                    'where',
+                    'whether',
+                    'which',
+                    'who',
+                    'whole',
+                    'whose',
+                    'why',
+                    'will',
+                    'with',
+                    'within',
+                    'without',
+                    'work',
+                    'worked',
+                    'working',
+                    'works',
+                    'would',
+                    'x',
+                    'y',
+                    'year',
+                    'years',
+                    'yet',
+                    'you',
+                    'young',
+                    'younger',
+                    'youngest',
+                    'your',
+                    'yours',
+                    'z'];
+
+                // Split out all the individual words in the phrase
+                words = cleansed_string.match(/[^\s]+|\s+[^\s+]$/g)
+
+                // Review all the words
+                for (x = 0; x < words.length; x++) {
+                    // For each word, check all the stop words
+                    for (y = 0; y < stop_words.length; y++) {
+                        // Get the current word
+                        word = words[x].replace(/\s+|[^a-z]+/ig, "");   // Trim the word and remove non-alpha
+
+                        // Get the stop word
+                        stop_word = stop_words[y];
+
+                        // If the word matches the stop word, remove it from the keywords
+                        if (word.toLowerCase() === stop_word) {
+                            // Build the regex
+                            regex_str = "^\\s*" + stop_word + "\\s*$";      // Only word
+                            regex_str += "|^\\s*" + stop_word + "\\s+";     // First word
+                            regex_str += "|\\s+" + stop_word + "\\s*$";     // Last word
+                            regex_str += "|\\s+" + stop_word + "\\s+";      // Word somewhere in the middle
+                            regex = new RegExp(regex_str, "ig");
+
+                            // Remove the word from the keywords
+                            cleansed_string = cleansed_string.replace(regex, " ");
+                        }
+                    }
+                }
+                return cleansed_string.replace(/^\s+|\s+$/g, "");
+            }
+            ans = ans.removeStopWords();
+
+
+
+            console.log(ans);
+
+            // var query = {"query": {"match": {"content": ans}}};
+
+            // var query = {
+            //     "query": {
+            //     "multi_match" : {
+            //         "query": ans,
+            //         "slop": 1,
+            //         "fields": ["heading^3", "content"],
+            //         "cutoff_frequency": 0.1,
+            //         "zero_terms_query": "all",
+            //     }
+            //   }
+            // }
+            var should_query = [];
+
+            for(let i =0; i <java_keywords_imp.length;i++){
+                should_query.push({
+                    "match": {
+                        "content": {
+                            "query": java_keywords_imp[i],
+                            "boost": 1.25
+                        }
+                    }
+                })
+            }
+
+            //
+            // for(let i =0; i <java_keywords.length;i++){
+            //     should_query.push({
+            //         "match": {
+            //             "content": {
+            //                 "query": java_keywords[i],
+            //                     "boost": 1.2
+            //             }
+            //         }
+            //     })
+            // }
+
+            var query = {
+                "query": {
+                    "bool": {
+                        "must": {
+                            "multi_match": {
+                                "query": ans,
+                                "fields": ["heading^5", "content^2"],
+                                "slop": 1,
+                                "cutoff_frequency": 0.1,
+                            }
+                        },
+                        "should": should_query
+                    }
+                }
+            };
+
+            $.ajax({
+                url: 'http://localhost:9200/wikibooks_java/_search',
+                type: 'POST',
+                dataType: 'json',
+                contentType: "application/json; charset=utf-8",
+                // _source: true,
+                data: JSON.stringify(query),
+                success: function (data) {
+                    console.log('Success');
+                    // console.log(data.hits.hits[0]);
+                    // var str = data.hits.hits[0]._source.content;
+                    // var rec = JSON.stringify(str);
+                    // // var res = rec.replace("\n", " + \"<br>\" + ");
+                    // var res = str.replace(/(?:\r\n|\r|\n)/g, '<br>');
+                    // // var res1 = replaceAll(rec, "\n", " + \"<br>\" + ");
+                    // console.log(res)
+
+                    var rec = "";
+                    // console.log(data.hits.hits[0]._score)
+
+                    for(var i =0; i < data.hits.hits.length; i++) {
+                        var content = data.hits.hits[i]._source.content;
+                        content = content.replace(/(?:\r\n|\r|\n)/g, '<br>');
+                        // console.log(content)
+                        content = content.replace('<br><br>', '<br>')
+                        content = content.replace('<br><br><br>', '<br>')
+                        content = content.replace('<br><br><br><br>', '<br>')
+
+                        // console.log(content)
+                        console.log(data.hits);
+                        if(ans.length<40){
+                            divselected.setAttribute("style", "background-color: #45B649")
+                        } else if(data.hits.hits[0]._score > 100) {
+                            divselected.setAttribute("style", "background-color: #45B649")
+                        }else if(data.hits.hits[0]._score > 40 && data.hits.hits[0]._score <= 100 ) {
+                            divselected.setAttribute("style", "background-color: #f8b500")
+                        }else {
+                            divselected.setAttribute("style", "background-color: #f44336")
+                        }
+
+                        rec =rec.concat("<h2 style='color: #2c3e50'><br><b>Recommendation_" + (i+1).toString() +":</b></h2> <i> (Score: " + data.hits.hits[i]._score + ")</i><hr>" + data.hits.hits[i]._source.heading + "<hr>" + content + "<br><hr>")
+                    }
+
+                    divselected.innerHTML = rec
+
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+                    console.log(textStatus);
+                    console.log(errorThrown);
+                },
+
+            });
+        }
+        else {
+            divselected.innerHTML = '';
+        }
+    }
+</script>
+
+</body>
+</html>

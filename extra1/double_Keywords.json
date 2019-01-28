@@ -1,0 +1,1 @@
+{"content": "\ndouble is a keyword which designates\nthe 64 bit float primitive type.\n\nThe java.lang.Double class is the nominal wrapper class when you need to store a double value but an object reference is required.\n\ndouble <variable-name> = <float-value>;\n\n\n\n\n\n\ndouble d = 65.55;\n\n\nJava Programming/Primitive Types", "heading": "double"}

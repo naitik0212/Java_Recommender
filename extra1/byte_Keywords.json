@@ -1,0 +1,1 @@
+{"content": "\nbyte is a keyword which designates\nthe 8 bit signed integer primitive type.\n\nThe java.lang.Byte class is the nominal\nwrapper class when you need to store a byte value\nbut an object reference is required.\n\nbyte <variable-name> = <integer-value>;\n\nThe number 65 is the code for 'A' in ASCII.\n\nJava Programming/Primitive Types", "heading": "byte"}

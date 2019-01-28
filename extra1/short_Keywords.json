@@ -1,0 +1,1 @@
+{"content": "\nshort is a keyword. It defines a 16 bit signed integer primitive type.\n\nshort <variable-name> = <integer-value>;\n\n\n\n\n\n\nshort age = 65;\n\n\nJava Programming/Primitive Types", "heading": "short"}

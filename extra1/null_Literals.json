@@ -1,0 +1,1 @@
+{"content": "\nnull is a special Java literal which represents a null value: a value which does not refer to any object. It is an error to attempt to dereference the null value \u2014 Java will throw a NullPointerException. null is often used to represent uninitialized state.\n", "heading": "null"}

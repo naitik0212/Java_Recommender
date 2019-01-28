@@ -1,0 +1,1 @@
+{"content": "\nlong is a keyword which designates the 64 bit signed integer primitive type.\n\nThe java.lang.Long class is the nominal wrapper class when you need to store a long value but an object reference is required.\n\nlong <variable-name> = <integer-value>;\n\n\n\n\n\n\nlong timestamp = 1269898201;\n\n\nJava Programming/Primitive Types", "heading": "long"}

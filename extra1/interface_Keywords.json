@@ -1,0 +1,1 @@
+{"content": "\ninterface is a Java keyword. It starts the declaration of a Java Interface.\n\n\n\n\n\n\npublic interface SampleInterface\n{\n   public void method1();\n   //...\n}\n\n\nJava Programming/Keywords/new", "heading": "interface"}

@@ -1,0 +1,1 @@
+{"content": "\nTo warn the user of things like common pitfalls, the XWarning template should be used as demonstrated:\n\n\n\nYou write\n\nYou get\n\n\n{{XWarning|This is a warning.}}\n\n\n\n\n\n\nThis is a warning.\n\n", "heading": "Warning"}

@@ -1,0 +1,1 @@
+{"content": "\nThe final keyword forbids to overwrite the method in a subclass. It is useless if the class is already final and a private method is implicitly final. A final method cannot be abstract.\n\n\n\n\n\nCode listing 2: NoOverwriting.java\n1 public class NoOverwriting {\n2   public final void sealedMethod() {\n3   }\n4 }\n\n", "heading": "For a method"}

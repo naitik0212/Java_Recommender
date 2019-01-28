@@ -1,0 +1,10 @@
+Steps to Run the project.
+
+1. Install Elastic Search 6.4 and Python 2.7 (along with required packets)
+2. Run the script(crawler.py) to crawl the database
+3. Turn on the Elastic Search 6.4 (go to bin directory and run ./elasticsearch in terminal)
+4. Replace the elasticsearch.yml file to allow CORS
+5. Test if elastic search is on (localhost:9200) from browser
+6. Open index.html and surf, hit recommendations or search phrase from textbox.
+
+Complete Demo has been shown in the link: https://youtu.be/KmNKsyozg7U
